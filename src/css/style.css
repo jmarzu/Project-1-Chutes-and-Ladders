@@ -1,0 +1,20 @@
+.board {
+  width: 400px;
+  height: 800px;
+  margin-top: 10px;
+}
+
+.board div {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  float: left;
+}
+
+button {
+  margin-bottom: 20px;
+}
+
+#randNumDiv {
+  font-size: 20px;
+}
