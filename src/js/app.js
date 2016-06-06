@@ -46,59 +46,47 @@ $(document).ready(function() {
                 { 'id': 36, 'position': '#p36', 'action': 0 },
               ];
 
-   // if player lands on div, this performs funciton in action key.
-   // Player starts off the board, clicks spin button
+    var playerArray = ['Player One','Player Two'];
 
-   // TO DO: When moveBtn is pressed it calls the switch player function and
-   // displays the next player to spin and also keeps track of that individuals
-   // movement array (spinNumArray, there will be one for each player)
-   // make it so that only one name is displayed for each game piece
-   // 1 player one and 1 player two
-    var playerArray = [ { 'name': 'Player One','id': '','position': ''},
-                        { 'name': 'Player Two','id': '','position': ''}
-                        ];
+    var spinNumArrayPlayer1 = [];
+    var spinNumArrayPlayer2 = [];
 
-    var spinNumArray = [];
-    var count = 1;
-    var choosenPlayer = 'Player One Spin Away';
-    var currentSpacesMoved;
-
-    // Calculates the total amount of spaces moved by player
-    function addUpElementsArray(spinNumArray) {
-      currentSpacesMoved = 0;
-      var numberOfSquares = 36;
-
-      for (var i = 0; i < spinNumArray.length; i++) {
-        currentSpacesMoved += spinNumArray[i] + board[i].action;
-      } if (currentSpacesMoved === board[i].id && board[i].action != 0) {
-        currentSpacesMoved += board[i].action;
-      }
-      console.log(spinNumArray);
-      console.log(currentSpacesMoved);
-    }
+    var count = 0
+    var chosenPlayer = 'Player One';
+    var currentSpacesMovedPlayer1 = 0;
+    var currentSpacesMovedPlayer2 = 0;
 
     function storeSpinNum(spinNumber) {
       $('#randNumDiv').html(spinNumber);
-      spinNumArray.push(spinNumber);
-      console.log(spinNumArray);
-      addUpElementsArray(spinNumArray);
     }
 
     // function to swtich between each player
-    function switchPlayer() {
-        if (count % 2 === 0) {
-          choosenPlayer = playerArray[0].name + " Spin Away";
-        } else {
-          choosenPlayer = playerArray[1].name + " Spin Away";
-        }
-        count++
-        console.log(choosenPlayer);
-    }
+    function switchPlayer(spinNumber) {
+      currentSpacesMovedPlayer1 = 0;
+      currentSpacesMovedPlayer2 = 0;
+      var numberOfSquares = 36;
 
+      if (count % 2 === 0) {
+        chosenPlayer = playerArray[0];
+        spinNumArrayPlayer1.push(spinNumber);
+
+      } else {
+        chosenPlayer = playerArray[1];
+        spinNumArrayPlayer2.push(spinNumber);
+
+      }
+      for (var i = 0; i < spinNumArrayPlayer1.length; i++) {
+        currentSpacesMovedPlayer1 += spinNumArrayPlayer1[i];
+      }
+      for (var i = 0; i < spinNumArrayPlayer2.length; i++) {
+          currentSpacesMovedPlayer2 += spinNumArrayPlayer2[i];
+      }
+      count++
+    }
 
     // Start Game button, shows Player One and Player Two in <p> tag
     $('#startGame').click(function() {
-      $('#showPlayer').html(choosenPlayer);
+      $('#showPlayer').html(chosenPlayer);
     });
 
     // Spin the wheel button
@@ -107,6 +95,7 @@ $(document).ready(function() {
       var spinArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       var spinNumber = Math.floor((Math.random() * spinArray.length) + 1);
       storeSpinNum(spinNumber);
+      switchPlayer(spinNumber);
 
       //Move Player Button
     $('#movePlayer').click(function() {
@@ -114,18 +103,18 @@ $(document).ready(function() {
       for (var i = 0; i < board.length; i++) {
         $(board[i].position).html('');
       }
-      console.log(currentSpacesMoved);
+      console.log(currentSpacesMovedPlayer1);
+      console.log(currentSpacesMovedPlayer2);
 
       for (var i = 0; i < board.length; i++) {
-        if (board[i].id === (currentSpacesMoved)) {
-        //  var j = (board[i].action + currentSpacesMoved) -1;
-          $(board[i].position).html('<p id="'+board[i].position+'">Player One</p>');
-         // console.log(j);
+        if (board[i].id === (currentSpacesMovedPlayer1)) {
+          $(board[i].position).append('<p id="'+board[i].position+'">Player One</p>');
+        }
+        if (board[i].id === (currentSpacesMovedPlayer2)) {
+          $(board[i].position).append('<p id="'+board[i].position+'">Player Two</p>');
         }
       }
-      $('#showPlayer').html(choosenPlayer);
-      console.log(choosenPlayer);
-    })
+    });
   });
 
 
