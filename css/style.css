@@ -29,3 +29,18 @@ button {
   float: right;
   padding-right: 100px;
 }
+
+
+.oddSquare {
+  background: lightblue;
+}
+ img {
+  width: 100%;
+  height: 75px;
+ }
+
+.titleImg {
+  width: 50%;
+  height: 200px;
+  margin-bottom: 20px;
+}

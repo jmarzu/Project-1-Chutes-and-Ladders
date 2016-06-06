@@ -108,10 +108,10 @@ $(document).ready(function() {
 
       for (var i = 0; i < board.length; i++) {
         if (board[i].id === (currentSpacesMovedPlayer1)) {
-          $(board[i].position).append('<p id="'+board[i].position+'">Player One</p>');
+          $(board[i].position).append('<p id="'+board[i].position+'"><img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"</p>');
         }
         if (board[i].id === (currentSpacesMovedPlayer2)) {
-          $(board[i].position).append('<p id="'+board[i].position+'">Player Two</p>');
+          $(board[i].position).append('<p id="'+board[i].position+'"><img src="https://s-media-cache-ak0.pinimg.com/236x/fd/d8/8e/fdd88ed55dac4c15b04df8e1b5ed1896.jpg"</p>');
         }
       }
     });
