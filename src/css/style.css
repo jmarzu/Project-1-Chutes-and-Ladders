@@ -1,6 +1,6 @@
 .board {
-  width: 400px;
-  height: 800px;
+  width: 600px;
+  height: 1200px;
   margin-top: 10px;
 }
 
@@ -16,8 +16,16 @@ button {
 }
 
 #randNumDiv {
-  font-size: 30px;
+  display: inline-block;
+  font-size: 25px;
   text-align: center;
   margin-left: 100px;
   width: 40px;
+}
+
+#showPlayer {
+  display: inline-block;
+  font-size: 25px;
+  float: right;
+  padding-right: 100px;
 }
