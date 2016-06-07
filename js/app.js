@@ -61,10 +61,13 @@ $(document).ready(function() {
                 { 'id': 50, 'position': '#p50', 'action': 0 },
               ];
 
+    // TO DO: Set up 'action' to happen if a player lands on a certain square
+    // Play a video or gif for each player when they win
+
     var playerArray = ['Player One','Player Two'];
 
-    var spinNumArrayPlayer1 = [];
-    var spinNumArrayPlayer2 = [];
+    var currentSpaceArrayPlayer1 = [];
+    var currentSpaceArrayPlayer2 = [];
 
     var count = 0
     var chosenPlayer = 'Player One';
@@ -86,29 +89,29 @@ $(document).ready(function() {
       }
     }
 
-    // Function to swtich between each player
+    // Function to swtich between each player and calculate
     function switchPlayer(spinNumber) {
       currentSpacesMovedPlayer1 = 0;
       currentSpacesMovedPlayer2 = 0;
 
       if (count % 2 === 0) {
         chosenPlayer = playerArray[0];
-        spinNumArrayPlayer1.push(spinNumber);
+        currentSpaceArrayPlayer1.push(spinNumber);
         $('#showPlayer').html(chosenPlayer +
           '<img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg">');
 
       } else {
         chosenPlayer = playerArray[1];
-        spinNumArrayPlayer2.push(spinNumber);
+        currentSpaceArrayPlayer2.push(spinNumber);
         $('#showPlayer').html(chosenPlayer +
           '<img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg">');
+      }
 
+      for (var i = 0; i < currentSpaceArrayPlayer1.length; i++) {
+        currentSpacesMovedPlayer1 += currentSpaceArrayPlayer1[i];
       }
-      for (var i = 0; i < spinNumArrayPlayer1.length; i++) {
-        currentSpacesMovedPlayer1 += spinNumArrayPlayer1[i];
-      }
-      for (var i = 0; i < spinNumArrayPlayer2.length; i++) {
-          currentSpacesMovedPlayer2 += spinNumArrayPlayer2[i];
+      for (var i = 0; i < currentSpaceArrayPlayer2.length; i++) {
+          currentSpacesMovedPlayer2 += currentSpaceArrayPlayer2[i];
       }
       count++
       chooseWinner(currentSpacesMovedPlayer1, currentSpacesMovedPlayer2);
