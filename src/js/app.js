@@ -7,12 +7,12 @@ $(document).ready(function() {
                 { 'id': 3, 'position': '#p3', 'action': 15 },
                 { 'id': 4, 'position': '#p4', 'action': 0 },
                 { 'id': 5, 'position': '#p5', 'action': 0 },
-                { 'id': 6, 'position': '#p6', 'action': (-4) },
+                { 'id': 6, 'position': '#p6', 'action': 0 },
                 { 'id': 7, 'position': '#p7', 'action': 0 },
                 { 'id': 8, 'position': '#p8', 'action': 0 },
                 { 'id': 9, 'position': '#p9', 'action': 0 },
-                { 'id': 10, 'position': '#p10', 'action': (-5) },
-                { 'id': 11, 'position': '#p11', 'action': 0 },
+                { 'id': 10, 'position': '#p10', 'action': 0 },
+                { 'id': 11, 'position': '#p11', 'action': (-1) },
                 { 'id': 12, 'position': '#p12', 'action': 0 },
                 { 'id': 13, 'position': '#p13', 'action': 0 },
                 { 'id': 14, 'position': '#p14', 'action': (-5) },
@@ -26,7 +26,7 @@ $(document).ready(function() {
                 { 'id': 22, 'position': '#p22', 'action': 0 },
                 { 'id': 23, 'position': '#p23', 'action': 0 },
                 { 'id': 24, 'position': '#p24', 'action': 3 },
-                { 'id': 25, 'position': '#p25', 'action': 0 },
+                { 'id': 25, 'position': '#p25', 'action': (-9) },
                 { 'id': 26, 'position': '#p26', 'action': 4 },
                 { 'id': 27, 'position': '#p27', 'action': 0 },
                 { 'id': 28, 'position': '#p28', 'action': (-6) },
@@ -39,7 +39,7 @@ $(document).ready(function() {
                 { 'id': 35, 'position': '#p35', 'action': 0 },
                 { 'id': 36, 'position': '#p36', 'action': (-5) },
                 { 'id': 37, 'position': '#p37', 'action': 0 },
-                { 'id': 38, 'position': '#p38', 'action': 0 },
+                { 'id': 38, 'position': '#p38', 'action': 1 },
                 { 'id': 39, 'position': '#p39', 'action': 0 },
                 { 'id': 40, 'position': '#p40', 'action': 0 },
                 { 'id': 41, 'position': '#p41', 'action': 4 },
@@ -52,9 +52,6 @@ $(document).ready(function() {
                 { 'id': 49, 'position': '#p49', 'action': 0 },
                 { 'id': 50, 'position': '#p50', 'action': (-40) }
               ];
-
-    // TO DO: Set up 'action' to happen if a player lands on a certain square
-    // Play a video or gif for each player when they win
 
     var playerArray = ['Player One','Player Two'];
     var count = 0
@@ -69,11 +66,13 @@ $(document).ready(function() {
     function chooseWinner(currentSpacesMovedPlayer1, currentSpacesMovedPlayer2) {
       var numberOfSquares = 50;
       if (currentSpacesMovedPlayer1 > numberOfSquares) {
-        // Find funny Chris Farley gif or short video to play if he wins
-        alert('Winner Player One!');
+        // Find funny Chris Farley gif or short video to play if he wins in show player
+        $('#showPlayer').html('WINNER! ' + 'Player One ' +
+          '<img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg">');
       } else if (currentSpacesMovedPlayer2 > numberOfSquares) {
-        // Find Bruce Lee gif or short video to play if he wins
-        alert('Winner Player Two!');
+        // Find Bruce Lee gif or short video to play if he wins in show player
+        $('#showPlayer').html('WINNER! ' +'Player Two ' +
+          '<img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg">');
       }
     }
 
@@ -126,20 +125,16 @@ $(document).ready(function() {
       }
       // Appends image of current player in correct postion
       for (var i = 0; i < board.length; i++) {
+
         if (board[i].id === currentSpacesMovedPlayer1) {
-            console.log(currentSpacesMovedPlayer1);
             currentSpacesMovedPlayer1 += board[i].action;
-            console.log(currentSpacesMovedPlayer1);
             $(board[i].position).append('<p id="'+board[i].position +
             '"><img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"></p>');
         }
         if (board[i].id === currentSpacesMovedPlayer2) {
-           console.log(currentSpacesMovedPlayer2);
            currentSpacesMovedPlayer2 += board[i].action;
-           console.log(currentSpacesMovedPlayer2);
            $(board[i].position).append('<p id="'+board[i].position +
            '"><img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg"></p>');
-
         }
       }
       chooseWinner(currentSpacesMovedPlayer1, currentSpacesMovedPlayer2);
