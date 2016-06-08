@@ -5,14 +5,14 @@ body {
 }
 
 .board {
-  width: 1000px;
+  width: 1300px;
   height: 1200px;
   margin-top: 50px;
 }
 
 .board div {
-  width: 100px;
-  height: 100px;
+  width: 125px;
+  height: 125px;
   border: 1px solid black;
   float: left;
 }
@@ -33,7 +33,7 @@ body {
   display: inline-block;
   font-size: 35px;
   float: right;
-  padding-right: 100px;
+  padding-right: 200px;
   margin-bottom: 10px
 }
 
@@ -56,8 +56,8 @@ body {
 
  #titleImageDiv {
   text-align: center;
-  height: 500px;
-  margin-bottom: 15px;
+  height: 350px;
+  margin-top: 15px;
  }
 
 .titleImage {
@@ -72,6 +72,12 @@ body {
 .chute {
   width: 100%;
 }
+
+button {
+  width: 100px;
+  height: 50px;
+}
+
 @media (max-width: 800px) {
   .board {
     width: 450px;
