@@ -1,11 +1,12 @@
 body {
   margin-left: 20px;
+  background-image: url(http://img.hdwallpaperpc.com/cover/119/Nature_Field_sunny_day_field_grass_Green_sunshine_blue_sky_cloud_flower_wide_nature_Landscape_beautiful_HD_118993_detail_thumb.jpg);
+  background-size: cover
 }
 
 .board {
   width: 1000px;
- /* height: 1200px;*/
-  margin-top: 60px;
+  margin-top: 100px;
 }
 
 .board div {
@@ -16,19 +17,23 @@ body {
 }
 
 #randNumDiv {
+  vertical-align: top;
+  color: white;
   display: inline-block;
   font-size: 25px;
-  text-align: center;
+  text-align: left;
   margin-left: 100px;
   width: 40px;
 }
 
 #showPlayer {
+  color: white;
   vertical-align: top;
   display: inline-block;
-  font-size: 25px;
+  font-size: 20px;
   float: right;
   padding-right: 100px;
+  margin-bottom: 10px
 }
 
 #showPlay img {
@@ -36,19 +41,35 @@ body {
 }
 
 .oddSquare {
-  background: lightblue;
+  background: white;
 }
+
+.evenSquare {
+  background: white;
+}
+
  img {
   width: 45px;
   height: 70px;
  }
 
-.titleImg {
+ #titleImageDiv {
+  text-align: center;
+  margin-bottom: 15px;
+ }
+
+.titleImage {
   width: 50%;
   height: 200px;
-  margin-bottom: 20px;
+}
+.ladder {
+  width: 100%;
+  height: 80%;
 }
 
+.chute {
+  width: 100%;
+}
 @media (max-width: 800px) {
   .board {
     width: 450px;

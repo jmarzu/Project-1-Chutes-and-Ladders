@@ -74,18 +74,19 @@ $(document).ready(function() {
       }
     }
 
-    // Function to swtich between each player and calculate
+    // Function to swtich between each player and calculate each players position
     function switchPlayer(spinNumber) {
-      if (count % 2 === 0 && count < 50) {
+      var numberOfSpins = 50;
+      if (count % 2 === 0 && count < numberOfSpins) {
         chosenPlayer = playerArray[0];
         currentSpacesMovedPlayer1 += spinNumber;
         $('#showPlayer').html(chosenPlayer +
-          '<img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg">');
+          ' <img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg">');
       } else {
         chosenPlayer = playerArray[1];
         currentSpacesMovedPlayer2 += spinNumber;
         $('#showPlayer').html(chosenPlayer +
-          '<img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg">');
+          ' <img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg">');
       }
       count++
     }
@@ -109,7 +110,7 @@ $(document).ready(function() {
     $('#spinBtn').click(function(e) {
       e.preventDefault();
       var spinArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      var spinNumber = 1;//Math.floor((Math.random() * spinArray.length) + 1);
+      var spinNumber = Math.floor((Math.random() * spinArray.length) + 1);
       storeSpinNum(spinNumber);
       switchPlayer(spinNumber);
 
@@ -134,14 +135,13 @@ $(document).ready(function() {
         if (board[i].id === currentSpacesMovedPlayer2) {
            currentSpacesMovedPlayer2 += board[i].action;
            if (board[i].action !== 0) {
-              $('#showPlayer').append('You must go ' +board[i].action+ ' spaces');
+              $('#showPlayer').append('You must go ' +board[i].action+ ' spaces after your ' + spinNumber);
            }
            $(board[i].position).append('<p id="'+board[i].position +
            '"><img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg"></p>');
         }
       }
       chooseWinner(currentSpacesMovedPlayer1, currentSpacesMovedPlayer2);
-
     });
   });
 }); // document.ready ending
