@@ -78,7 +78,8 @@ $(document).ready(function() {
 
     // Function to swtich between each player and calculate
     function switchPlayer(spinNumber) {
-      if (count % 2 === 0) {
+      if (count % 2 === 0 && count < 50) {
+        console.log('in the if statement');
         chosenPlayer = playerArray[0];
         currentSpacesMovedPlayer1 += spinNumber;
         $('#showPlayer').html(chosenPlayer +
@@ -127,7 +128,12 @@ $(document).ready(function() {
       for (var i = 0; i < board.length; i++) {
 
         if (board[i].id === currentSpacesMovedPlayer1) {
+
             currentSpacesMovedPlayer1 += board[i].action;
+            if (board[i].action !== 0) {
+              $('#showPlayer').append('You must go ' +board[i].action+ ' spaces');
+            }
+
             $(board[i].position).append('<p id="'+board[i].position +
             '"><img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"></p>');
         }
