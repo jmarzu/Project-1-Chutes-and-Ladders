@@ -66,11 +66,9 @@ $(document).ready(function() {
     function chooseWinner(currentSpacesMovedPlayer1, currentSpacesMovedPlayer2) {
       var numberOfSquares = 50;
       if (currentSpacesMovedPlayer1 > numberOfSquares) {
-        // Find funny Chris Farley gif or short video to play if he wins in show player
         $('#showPlayer').html('WINNER! ' + 'Player One ' +
           '<img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg">');
       } else if (currentSpacesMovedPlayer2 > numberOfSquares) {
-        // Find Bruce Lee gif or short video to play if he wins in show player
         $('#showPlayer').html('WINNER! ' +'Player Two ' +
           '<img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg">');
       }
@@ -84,7 +82,6 @@ $(document).ready(function() {
         currentSpacesMovedPlayer1 += spinNumber;
         $('#showPlayer').html(chosenPlayer +
           '<img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg">');
-
       } else {
         chosenPlayer = playerArray[1];
         currentSpacesMovedPlayer2 += spinNumber;
@@ -128,17 +125,18 @@ $(document).ready(function() {
       for (var i = 0; i < board.length; i++) {
 
         if (board[i].id === currentSpacesMovedPlayer1) {
-
             currentSpacesMovedPlayer1 += board[i].action;
             if (board[i].action !== 0) {
               $('#showPlayer').append('You must go ' +board[i].action+ ' spaces');
             }
-
             $(board[i].position).append('<p id="'+board[i].position +
             '"><img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"></p>');
         }
         if (board[i].id === currentSpacesMovedPlayer2) {
            currentSpacesMovedPlayer2 += board[i].action;
+           if (board[i].action !== 0) {
+              $('#showPlayer').append('You must go ' +board[i].action+ ' spaces');
+           }
            $(board[i].position).append('<p id="'+board[i].position +
            '"><img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg"></p>');
         }
