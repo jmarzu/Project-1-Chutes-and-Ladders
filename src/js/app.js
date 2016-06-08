@@ -67,10 +67,12 @@ $(document).ready(function() {
       var numberOfSquares = 50;
       if (currentSpacesMovedPlayer1 > numberOfSquares) {
         $('#showPlayer').html('WINNER! ' + 'Player One ' +
-          '<img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg">');
+          ' <img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"> ' +
+          ' <a href="https://www.youtube.com/watch?v=qFbvwVfWFpE&list=PLQbX0aRjbqEqwn_vxdrKPfVdmwRJZdnOd">Winner Click</a>');
       } else if (currentSpacesMovedPlayer2 > numberOfSquares) {
         $('#showPlayer').html('WINNER! ' +'Player Two ' +
-          '<img src="http://stream1.gifsoup.com/view7/2774269/bruce-lee-o.gif">');
+          ' <img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg"> ' +
+          ' <a href="https://www.youtube.com/watch?v=TYHZEu7Y7DU">Winner Click</a>');
       }
     }
 
