@@ -6,7 +6,8 @@ body {
 
 .board {
   width: 1000px;
-  margin-top: 100px;
+  height: 1200px;
+  margin-top: 50px;
 }
 
 .board div {
@@ -20,17 +21,17 @@ body {
   vertical-align: top;
   color: white;
   display: inline-block;
-  font-size: 25px;
+  font-size: 35px;
   text-align: left;
   margin-left: 100px;
   width: 40px;
 }
 
 #showPlayer {
-  color: white;
+  color: black;
   vertical-align: top;
   display: inline-block;
-  font-size: 20px;
+  font-size: 35px;
   float: right;
   padding-right: 100px;
   margin-bottom: 10px
@@ -55,12 +56,13 @@ body {
 
  #titleImageDiv {
   text-align: center;
+  height: 500px;
   margin-bottom: 15px;
  }
 
 .titleImage {
   width: 50%;
-  height: 200px;
+  height: 300px;
 }
 .ladder {
   width: 100%;
