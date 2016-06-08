@@ -70,14 +70,13 @@ $(document).ready(function() {
           '<img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg">');
       } else if (currentSpacesMovedPlayer2 > numberOfSquares) {
         $('#showPlayer').html('WINNER! ' +'Player Two ' +
-          '<img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg">');
+          '<img src="http://stream1.gifsoup.com/view7/2774269/bruce-lee-o.gif">');
       }
     }
 
     // Function to swtich between each player and calculate
     function switchPlayer(spinNumber) {
       if (count % 2 === 0 && count < 50) {
-        console.log('in the if statement');
         chosenPlayer = playerArray[0];
         currentSpacesMovedPlayer1 += spinNumber;
         $('#showPlayer').html(chosenPlayer +
@@ -110,7 +109,7 @@ $(document).ready(function() {
     $('#spinBtn').click(function(e) {
       e.preventDefault();
       var spinArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-      var spinNumber = Math.floor((Math.random() * spinArray.length) + 1);
+      var spinNumber = 1;//Math.floor((Math.random() * spinArray.length) + 1);
       storeSpinNum(spinNumber);
       switchPlayer(spinNumber);
 
@@ -127,10 +126,10 @@ $(document).ready(function() {
         if (board[i].id === currentSpacesMovedPlayer1) {
             currentSpacesMovedPlayer1 += board[i].action;
             if (board[i].action !== 0) {
-              $('#showPlayer').append('You must go ' +board[i].action+ ' spaces');
+              $('#showPlayer').append('You moved ' +board[i].action+ ' spaces after your ' + spinNumber);
             }
             $(board[i].position).append('<p id="'+board[i].position +
-            '"><img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"></p>');
+           '"><img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"></p>');
         }
         if (board[i].id === currentSpacesMovedPlayer2) {
            currentSpacesMovedPlayer2 += board[i].action;
@@ -142,6 +141,7 @@ $(document).ready(function() {
         }
       }
       chooseWinner(currentSpacesMovedPlayer1, currentSpacesMovedPlayer2);
+
     });
   });
 }); // document.ready ending
