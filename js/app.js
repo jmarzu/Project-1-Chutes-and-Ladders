@@ -127,7 +127,7 @@ $(document).ready(function() {
         if (board[i].id === currentSpacesMovedPlayer1) {
             currentSpacesMovedPlayer1 += board[i].action;
             if (board[i].action !== 0) {
-              $('#showPlayer').append('You moved ' +board[i].action+ ' spaces after your ' + spinNumber);
+              $('#showPlayer').append('  You moved ' +board[i].action+ ' spaces after your ' + spinNumber);
             }
             $(board[i].position).append('<p id="'+board[i].position +
            '"><img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"></p>');
@@ -135,7 +135,7 @@ $(document).ready(function() {
         if (board[i].id === currentSpacesMovedPlayer2) {
            currentSpacesMovedPlayer2 += board[i].action;
            if (board[i].action !== 0) {
-              $('#showPlayer').append('You must go ' +board[i].action+ ' spaces after your ' + spinNumber);
+              $('#showPlayer').append('  You must go ' +board[i].action+ ' spaces after your ' + spinNumber);
            }
            $(board[i].position).append('<p id="'+board[i].position +
            '"><img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg"></p>');
