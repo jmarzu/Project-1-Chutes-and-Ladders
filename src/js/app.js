@@ -94,10 +94,6 @@ $(document).ready(function() {
     }
 
     $('#resetBtn').click(function() {
-      choosenPlayer = "Player One Spin Away";
-      count = 1;
-      totalSpacesMovedPlayer1 = 0;
-      totalSpacesMovedPlayer2 = 0;
     });
 
     // Start Game button, shows Player One and Player Two in <p> tag
