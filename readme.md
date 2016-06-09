@@ -9,8 +9,9 @@ If a player lands on a square with a chute or ladder the move is instantly calcu
 At the end a winner is declared and there is a special prize for each player when they win.
 
 Acknowledgements:
-HTML
-CSS
-jQuery
-Bootstrap
+HTML,
+CSS,
+jQuery,
+Bootstrap,
 Media Queries
+
