@@ -68,7 +68,7 @@ $(document).ready(function() {
       if (currentSpacesMovedPlayer1 > numberOfSquares) {
         $('#showPlayer').html('WINNER! ' + 'Player One ' +
           ' <img src="http://farm5.static.flickr.com/4098/4857338908_fa26ba78e7.jpg"> ' +
-          ' <a href="https://www.youtube.com/watch?v=qFbvwVfWFpE&list=PLQbX0aRjbqEqwn_vxdrKPfVdmwRJZdnOd">Winner Click</a>');
+          ' <a href="https://www.youtube.com/watch?v=YqyTNq_1K5A">Winner Click</a>');
       } else if (currentSpacesMovedPlayer2 > numberOfSquares) {
         $('#showPlayer').html('WINNER! ' +'Player Two ' +
           ' <img src="http://3.bp.blogspot.com/_OpVGSU4at94/TK_-2Jj8LiI/AAAAAAAAEMo/9yUcIW4j1jQ/s640/01.jpg"> ' +
